@@ -99,6 +99,8 @@ WillPaginate::ViewHelpers::LinkRenderer.class_eval do
     url_params = @base_url_params.dup
     add_current_page_param(url_params, page)
     
+    url_params[:page] = nil if page && page.to_i == 1
+    
     @template.url_for(url_params)
   end
   
